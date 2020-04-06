@@ -3,6 +3,11 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   entry: './src/index',
+  devServer: {
+    proxy: {    // proxy dev server to backend at port 8080
+      '/api': 'http://localhost:8080',
+    },
+  },
   output: {
     path: path.join(__dirname, '/dist'),
     filename: 'bundle.js'
